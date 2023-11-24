@@ -55,14 +55,7 @@ function changeStatus(){
         </div>
             </div>
           </div> 
-        <label htmlFor="yearSelect" style={{fontWeight: "900", paddingLeft: "50px"}}>Select Year:&nbsp;</label>
-        <select id="yearSelect">
-          <option value="">All Years</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          {/* Add more years as needed */}
-    
-        </select>
+        
         <label htmlFor="yearSelect" style={{fontWeight: "900", paddingLeft: "20px"}}>Semester:&nbsp;</label>
         <select   id="yearSelect" onChange={(e)=>{
         
