@@ -1,6 +1,7 @@
 import React from 'react'
 import Sliders from "./Slider"
 function Hero() {
+  console.log("Hero sexction", import.meta.env.VITE_APP_APP_ID)
   return (
     <div className="page-component__bg_image_box bg-light_gray-color first_component" id="header-23-140891">
     <div className="page-component__bg_overlay_box" style={{}} />
