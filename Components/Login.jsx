@@ -16,13 +16,13 @@ function Login({ checkState }) {
     async function login(event) {
         event.preventDefault();
         try {
-            const check = await axios.get(`https://usct-backend.onrender.com/check/authorization/email=${email}`);
+            const check = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/check/authorization/email=${email}`);
             if (check.data.authorized) {
                 const user = await fetchSignInMethodsForEmail(auth, email);
-console.log(user);
-                if (user.length > 0) {
+                console.log(user);
+                if (user.length == 0) {
                     // user exists means login
-                  
+
                     signin();
 
                 } else {
@@ -59,32 +59,32 @@ console.log(user);
 
             } else {
 
-try{
-    const data = await createUserWithEmailAndPassword(auth, email, password);
-    const update = await updateProfile(auth.currentUser, {
-        displayName: name
-    })
-    const response = await axios.post(`https://usct-backend.onrender.com/check/superadmin`, {
-        email: email
-    });
+                try {
+                    const data = await createUserWithEmailAndPassword(auth, email, password);
+                    const update = await updateProfile(auth.currentUser, {
+                        displayName: name
+                    })
+                    const response = await axios.post(`${import.meta.env.VITE_APP_BACKEND_URL}/check/superadmin`, {
+                        email: email
+                    });
 
-    if (response.data === true) {
-        setSuperAdmin({
-            isSuperAdmin: true,
-        });
-        localStorage.setItem('isSuperAdmin', 'true');
+                    if (response.data === true) {
+                        setSuperAdmin({
+                            isSuperAdmin: true,
+                        });
+                        localStorage.setItem('isSuperAdmin', 'true');
 
-        navigate("/superadminportal");
-    } else {
-        // Handle the case where the email is not a superadmin
-        navigate("/inhouse");
-        window.location.reload();
+                        navigate("/superadminportal");
+                    } else {
+                        // Handle the case where the email is not a superadmin
+                        navigate("/inhouse");
+                        window.location.reload();
 
-    }
-}catch(e){
-    console.log(e.code);
-    toast.error(e.code);
-}
+                    }
+                } catch (e) {
+                    console.log(e.code);
+                    toast.error(e.code);
+                }
             }
         } catch (e) {
 
@@ -113,34 +113,34 @@ try{
                 window.location.reload();
 
             } else {
-                try{
+                try {
                     const userCredential = await signInWithEmailAndPassword(
                         auth,
                         email,
                         password
                     );
-                
 
-                const response = await axios.post(`https://usct-backend.onrender.com/check/superadmin`, {
-                    email: email
-                });
-                if (response.data === true) {
-                    setSuperAdmin({
-                        isSuperAdmin: true,
+
+                    const response = await axios.post(`${import.meta.env.VITE_APP_BACKEND_URL}/check/superadmin`, {
+                        email: email
                     });
-                    localStorage.setItem('isSuperAdmin', 'true');
+                    if (response.data === true) {
+                        setSuperAdmin({
+                            isSuperAdmin: true,
+                        });
+                        localStorage.setItem('isSuperAdmin', 'true');
 
 
-                    navigate("superadminportal");
-                } else {
+                        navigate("superadminportal");
+                    } else {
 
-                    navigate("/inhouse")
-                    window.location.reload();
+                        navigate("/inhouse")
+                        window.location.reload();
+                    }
+                } catch (e) {
+                    console.log(e.code);
+                    toast.error(e.code);
                 }
-            }catch(e){
-                console.log(e.code);
-                toast.error(e.code);
-            }
 
             }
 

@@ -14,6 +14,7 @@ export default defineConfig({
     "process.env.VITE_APP_STORAGE_BUCKET":JSON.stringify(process.env.VITE_APP_STORAGE_BUCKET),
     "process.env.VITE_APP_MESSAGING_ID":JSON.stringify(process.env.VITE_APP_MESSAGING_ID),
     "process.env.VITE_APP_APP_ID":JSON.stringify(process.env.VITE_APP_APP_ID),
+    "process.env.VITE_APP_BACKEND_URL" : JSON.stringify(process.env.VITE_APP_BACKEND_URL)
     
     }
 })
