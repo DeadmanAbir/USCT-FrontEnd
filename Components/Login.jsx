@@ -17,6 +17,7 @@ function Login({ checkState }) {
         event.preventDefault();
         try {
             const check = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/check/authorization/email=${email}`);
+            console.log(`${import.meta.env.VITE_APP_BACKEND_URL}/check/authorization/email=${email}`);
             if (check.data.authorized) {
                 const user = await fetchSignInMethodsForEmail(auth, email);
                 console.log(user);
