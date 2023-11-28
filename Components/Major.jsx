@@ -26,7 +26,7 @@ function Major() {
 
                 if (semesterApi && NAME) {
 
-                    const response = await axios.get(`https://usct-backend.onrender.com/students/major/${semesterApi}/${NAME}`);
+                    const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/students/major/${semesterApi}/${NAME}`);
 
 
                     setStudent(response.data);

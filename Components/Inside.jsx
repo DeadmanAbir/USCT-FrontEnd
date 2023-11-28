@@ -10,15 +10,15 @@ function Inside() {
     let count = 0;
     const name = useRecoilValue(getState);
     const [student, setStudent] = useState([]);
-    const semesterApi=useRecoilValue(getSemesterApi);
+    const semesterApi = useRecoilValue(getSemesterApi);
 
     useEffect(() => {
         async function GET() {
             try {
                 console.log(semesterApi);
-                if ( semesterApi) {
+                if (semesterApi) {
                     //    console.log(name==="Aradhna Srivastava")
-                    const response = await axios.get(`https://usct-backend.onrender.com/students/inside/5/${name}`);
+                    const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/students/inside/5/${name}`);
 
 
                     setStudent(response.data);
@@ -37,14 +37,14 @@ function Inside() {
                 <div style={{ position: "relative", top: "0", left: "0", display: "flex", justifyContent: "center", alignItems: "center", height: "60vh", width: "100%" }}>
 
 
-{/* 
+                    {/* 
                     <l-pinwheel
                         size="50"
                         stroke="3.5"
                         speed="1"
                         color="#900"
                     ></l-pinwheel> */}
-                <h1 style={{fontSize: "50px", color: "#900"}}>No data to show</h1>
+                    <h1 style={{ fontSize: "50px", color: "#900" }}>No data to show</h1>
 
 
                 </div>

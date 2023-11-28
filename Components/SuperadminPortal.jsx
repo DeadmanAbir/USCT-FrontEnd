@@ -9,7 +9,7 @@ function SuperadminPortal() {
       const inputYear = window.prompt('Please enter the year:');
       if(inputYear!=null){
         try{
-          const response=await axios.delete(`https://usct-backend.onrender.com/drive/superadmin/delete/${inputYear}`);
+          const response=await axios.delete(`${import.meta.env.VITE_APP_BACKEND_URL}/drive/superadmin/delete/${inputYear}`);
           console.log(response.data);
          }catch(e){
           console.log(e);

@@ -25,13 +25,13 @@ function UploadPerformance() {
                     formData.append('file', file);
                    
                     console.log(name, company, semester)
-                    const response=await axios.post('https://usct-backend.onrender.com/drive/file/upload', formData);
+                    const response=await axios.post(`${import.meta.env.VITE_APP_BACKEND_URL}/drive/file/upload`, formData);
                     setUrl(response.data.webContentLink);
                     console.log(url, response.data.webContentLink);
                     try{
                         console.log(url);
                         
-                        const upload=await axios.post(`https://usct-backend.onrender.com/create/students/${type.toLowerCase()}`, {
+                        const upload=await axios.post(`${import.meta.env.VITE_APP_BACKEND_URL}/create/students/${type.toLowerCase()}`, {
                             name,
                             company,
                             year,

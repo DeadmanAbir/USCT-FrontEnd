@@ -9,7 +9,7 @@ function Studentcard({ enrollment, studentName, year, company, semester, id }) {
         formData.append('file', selectedFile);
         formData.append("courseId", id);
         try {
-            const response = await axios.put('https://usct-backend.onrender.com/drive/upload/pdf', formData);
+            const response = await axios.put(`${import.meta.env.VITE_APP_BACKEND_URL}/drive/upload/pdf`, formData);
             console.log("File uploaded successfully");
             //console.log(response.data.webContentLink);
             toast.success("File uploaded successfully");

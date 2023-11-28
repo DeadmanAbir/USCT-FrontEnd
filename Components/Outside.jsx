@@ -18,7 +18,7 @@ function Outside() {
 
         if (semesterApi) {
           //    console.log(isConnected);
-          const response = await axios.get(`https://usct-backend.onrender.com/students/outside/5/${name}`);
+          const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/students/outside/5/${name}`);
 
 
           setStudent(response.data);
