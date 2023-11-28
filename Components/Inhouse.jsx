@@ -26,7 +26,7 @@ function Inhouse() {
 
         if (semesterApi && NAME) {
 
-          const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/${TYPE}/${semesterApi}/${NAME}`);
+          const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/students/${TYPE}/${semesterApi}/${NAME}`);
 
 
           setStudent(response.data);
