@@ -45,32 +45,7 @@ const router = createBrowserRouter(
  
   )
 );
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: 
-//       <HomePage />
-//     ,
-//     loader: HomeLoader
-    
-//   },
-//   {
-//     path: "/superadminportal",
-//     element: <SuperadminPortal />
-//   },{
-//     path: "/uploadperformance", 
-//     element: <UploadPerformance />
-//   },
-//   {
-//     path: "/inhouse",
-//     element: <Inhouse />,
-//     loader: DashboardLoader
-//   },{
-//     path: "/excelupload",
-//     element: <Excel />
-//   }
-  
-// ]);
+
 
 
 
@@ -81,7 +56,6 @@ function App() {
   useEffect(() => {
     const listen = onAuthStateChanged(auth, async(user) => {
       if (user) {
-       console.log(user.uid)
         
         const id = await auth.currentUser.getIdToken();
         setState({

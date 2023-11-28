@@ -47,12 +47,14 @@ console.log(NAME);
 
 
 
-                <l-pinwheel
+                {/* <l-pinwheel
                     size="50"
                     stroke="3.5"
                     speed="1"
                     color="#900"
-                ></l-pinwheel>
+                ></l-pinwheel> */}
+                <h1 style={{fontSize: "50px", color: "#900"}}>No data to show</h1>
+
 
             </div>
         </>

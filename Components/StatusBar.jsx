@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { auth } from '../Firebase/Firebase';
 import { useRecoilValue , useSetRecoilState} from 'recoil';
-import { getState, getSemStatus } from '../Store/Getters';
+import { getState, getSemStatus, getSemesterApi } from '../Store/Getters';
 import { isSemFive } from '../Store/Atoms';
 function StatusBar() {
   // console.log("CuurentUser", auth.currentUser);
@@ -11,11 +11,12 @@ function StatusBar() {
   const checkSemFive=useRecoilValue(getSemStatus);
 
   const setSemFive=useSetRecoilState(isSemFive);
+  const semesterApi=useRecoilValue(getSemesterApi);
 
 
 const [semester, setSemester]=useState("8");
 const navigate=useNavigate();
-
+console.log(semesterApi);
 function changeStatus(){
  
    
@@ -96,12 +97,14 @@ function changeStatus(){
           <span className="icon">
             
           </span>
-        </Link><Link to="/inhouse"  className="button button--empty button--accent-outline" style={{marginBottom: "-15px"}}>
+        </Link>
+       </>)}
+       {semesterApi=="8" || semesterApi== "5"?(null) : ( <Link to="/inhouse"  className="button button--empty button--accent-outline" style={{marginBottom: "-15px"}}>
           <span className="button__text" style={{ color: "#900" }}>Inhouse</span>
           <span className="icon">
             
           </span>
-        </Link></>)}
+        </Link>)}
         
     
     
